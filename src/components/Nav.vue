@@ -1,15 +1,15 @@
 <script setup>
-import { useRouter } from "vue-router";
-import useAuth from "../composable/useAuth";
+  import { useRouter } from 'vue-router'
+  import useAuth from '../composable/useAuth'
 
-const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth()
 
-const router = useRouter();
+  const router = useRouter()
 
-const loggingOut = () => {
-  logout();
-  router.push("/");
-};
+  const loggingOut = () => {
+    logout()
+    router.push('/')
+  }
 </script>
 
 <template>
@@ -22,14 +22,22 @@ const loggingOut = () => {
         <ul class="flex space-x-4">
           <router-link to="/">
             <li
-              class="px-4 py-8  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800"
+              class="
+                px-4
+                py-8
+                hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800
+              "
             >
               Home
             </li>
           </router-link>
           <router-link :to="{ name: 'About' }">
             <li
-              class="px-4 py-8  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800"
+              class="
+                px-4
+                py-8
+                hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800
+              "
             >
               About
             </li>
@@ -39,7 +47,11 @@ const loggingOut = () => {
             :to="{ path: '/login', name: 'Login' }"
           >
             <li
-              class="px-4 py-8  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800"
+              class="
+                px-4
+                py-8
+                hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800
+              "
             >
               Login
             </li>
@@ -47,14 +59,22 @@ const loggingOut = () => {
           <div v-else class="flex">
             <router-link :to="{ name: 'Secret' }">
               <li
-                class="px-4 py-8  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800"
+                class="
+                  px-4
+                  py-8
+                  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800
+                "
               >
                 Secret
               </li>
             </router-link>
             <button @click="loggingOut">
               <li
-                class="px-4 py-8  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800"
+                class="
+                  px-4
+                  py-8
+                  hover:cursor-pointer hover:bg-yellow-500 hover:text-yellow-800
+                "
               >
                 Logout
               </li>
