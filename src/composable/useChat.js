@@ -1,5 +1,11 @@
 import { ref } from 'vue'
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore'
+import {
+  collection,
+  query,
+  orderBy,
+  onSnapshot,
+  addDoc,
+} from 'firebase/firestore'
 
 import { db } from './useFirebase'
 import useAuth from './useAuth'
@@ -20,7 +26,15 @@ const useChat = () => {
     })
   })
 
-  return { messages, unsubscribe }
+  const sendMessage = async message => {
+    await addDoc(chatCollection, {
+      text: message,
+      author: user.value,
+      createdAt: new Date(),
+    })
+  }
+
+  return { messages, unsubscribe, sendMessage }
 }
 
 export default useChat
